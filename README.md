@@ -80,8 +80,8 @@ microk8s.enable dns dashboard ingress
 # see what has been created
 kubectl get all -n kube-system
 
-# launch proxy in the background
-kubectl proxy --accept-hosts=.* --address=0.0.0.0 &
+# do a temporary port forwarding
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
 
 # get config file
 kubectl config view
@@ -89,7 +89,7 @@ kubectl config view
 # copy content and create config file on your local machine
 
 # access dashboard on local machine
-# http://{MASTER_NODE_IP_address}:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+# https://{MASTER_NODE_IP_address}:10443/
 # use above config file to connect
 
 
