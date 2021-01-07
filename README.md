@@ -73,4 +73,24 @@ kubectl get nodes
 
 ## Enable Kubernetes Dashboard
 ```bash
+# connect to master node via ssh
+# enable dashboard https://virtualizationreview.com/articles/2019/01/30/microk8s-part-2-how-to-monitor-and-manage-kubernetes.aspx
+microk8s.enable dns dashboard ingress
+
+# see what has been created
+kubectl get all -n kube-system
+
+# launch proxy in the background
+kubectl proxy --accept-hosts=.* --address=0.0.0.0 &
+
+# get config file
+kubectl config view
+
+# copy content and create config file on your local machine
+
+# access dashboard on local machine
+# http://{MASTER_NODE_IP_address}:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+# use above config file to connect
+
+
 ```
