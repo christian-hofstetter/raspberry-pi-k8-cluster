@@ -71,6 +71,12 @@ kubectl get nodes
 
 ```
 
+## Disable HA config
+```bash
+microk8s disable ha-cluster
+```
+
+
 ## Enable Kubernetes Dashboard
 ```bash
 # connect to master node via ssh
@@ -91,6 +97,5 @@ kubectl config view
 # access dashboard on local machine
 # https://{MASTER_NODE_IP_address}:10443/
 # use above config file to connect
-
 
 ```
