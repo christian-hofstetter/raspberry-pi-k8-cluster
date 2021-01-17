@@ -41,7 +41,7 @@ cgroup_enable=memory cgroup_memory=1
 sudo reboot
 
 # install microk8s https://microk8s.io/docs
-sudo snap install microk8s --classic --channel=1.19
+sudo snap install microk8s --classic --channel=1.20
 
 # join groups
 sudo usermod -a -G microk8s $USER
