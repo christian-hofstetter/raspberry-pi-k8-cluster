@@ -31,6 +31,34 @@ sudo hostnamectl set-hostname "Raspberry PI k8 Master" --pretty
 # verify changes
 hostnamectl
 
+# configure a fix ip for the node
+sudo vi /etc/netplan/01-netcfg.yaml
+
+### file content ->
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.5/24
+      gateway4: 192.168.1.1
+      nameservers:
+          addresses: [8.8.8.8, 1.1.1.1]
+          
+          
+# apply the fixed ip      
+sudo netplan apply
+
+# verify ip
+ip addr show dev eth0
+
+```
+
+## Install and Configure Microk8
+```bash
+
 # enable c-groups https://microk8s.io/docs/install-alternatives#heading--arm
 sudo vi /boot/firmware/cmdline.txt
 
