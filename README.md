@@ -99,11 +99,6 @@ kubectl get nodes
 
 ```
 
-## Disable HA config
-```bash
-microk8s disable ha-cluster
-```
-
 
 ## Enable Kubernetes Dashboard
 ```bash
