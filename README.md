@@ -127,7 +127,7 @@ microk8s kubectl -n kube-system describe secret $token
 ```
 
 
-## Expose k8 Cluster
+## Configure Prometheus Grafana Monitoring
 ```bash
 # configure dyndns on router
 # and port forwarding for 443 and 80 TCP
@@ -138,5 +138,26 @@ microk8s.enable storage
 # enable prometheus
 # Default (user/pass: admin/admin)
 microk8s.enable prometheus
+
+# check created services
+microk8s kubectl get services -n monitoring
+
+# check created pods
+microk8s kubectl get pods -n monitoring 
+
+# set port-forwarding to enable external access
+# Prometheus UI
+microk8s kubectl port-forward -n monitoring service/prometheus-k8s --address 0.0.0.0 9090:9090
+
+# Grafana UI
+microk8s kubectl port-forward -n monitoring service/grafana --address 0.0.0.0 3000:3000 
+
+```
+
+## Other stuff
+```bash
+
+# enable storage
+microk8s.enable storage
 
 ```
