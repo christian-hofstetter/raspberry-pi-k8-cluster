@@ -11,9 +11,6 @@
 ```bash
 # connect to raspi using default password 'ubuntu'
 ssh ubuntu@192.168.1.116
-# The authenticity of host '192.168.1.116 (192.168.1.116)' can't be established.
-ECDSA key fingerprint is SHA256:0YC27d9uytHLFb5k9MdQtqTRkplCt2gni4VKQzDzrOI.
-Are you sure you want to continue connecting (yes/no)? yes
 
 # connect again as connection closes with the new password
 ssh ubuntu@192.168.1.114
