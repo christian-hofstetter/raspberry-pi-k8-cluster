@@ -125,3 +125,17 @@ token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d
 microk8s kubectl -n kube-system describe secret $token
 
 ```
+
+
+## Expose k8 Cluster
+```bash
+# configure dyndns on router
+# and port forwarding for 443 and 80 TCP
+
+# enable storage
+microk8s.enable storage
+
+# enable prometheus
+microk8s.enable prometheus
+
+```
