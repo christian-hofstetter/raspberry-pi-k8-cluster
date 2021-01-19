@@ -119,4 +119,9 @@ kubectl config view
 # https://{MASTER_NODE_IP_address}:10443/
 # use above config file to connect
 
+
+# alternative to retrieve token
+token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
+microk8s kubectl -n kube-system describe secret $token
+
 ```
