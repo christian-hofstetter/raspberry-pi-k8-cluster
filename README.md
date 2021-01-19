@@ -136,6 +136,7 @@ microk8s kubectl -n kube-system describe secret $token
 microk8s.enable storage
 
 # enable prometheus
+# Default (user/pass: admin/admin)
 microk8s.enable prometheus
 
 ```
