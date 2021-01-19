@@ -32,6 +32,7 @@ sudo hostnamectl set-hostname "Raspberry PI k8 Master" --pretty
 hostnamectl
 
 # configure a fix ip for the node
+# hint: use 'set paste' in vim to retain the white spaces
 sudo vi /etc/netplan/01-netcfg.yaml
 
 ### file content ->
